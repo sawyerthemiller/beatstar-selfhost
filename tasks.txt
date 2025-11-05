@@ -1,0 +1,22 @@
+- Add better logging with winston and daily-rotate-file
+
+RangeError [ERR_BUFFER_OUT_OF_BOUNDS]: Attempt to access memory outside buffer bounds
+    at boundsError (node:internal/buffer:86:11)
+    at Buffer.readUInt32BE (node:internal/buffer:311:5)
+    at ProtobufHandler.readIntBE (/root/beatstar/Beatstar-Private-Server/node_modules/@externaladdress4401/protobuf/dist/ProtobufHandler.js:364:31)
+    at Client.extractPackets (/root/beatstar/Beatstar-Private-Server/Client.ts:29:30)
+    at Socket.<anonymous> (/root/beatstar/Beatstar-Private-Server/server.ts:112:30)
+    at Socket.emit (node:events:519:28)
+    at addChunk (node:internal/streams/readable:561:12)
+    at readableAddChunkPushByteMode (node:internal/streams/readable:512:3)
+    at Readable.push (node:internal/streams/readable:392:5)
+    at TCP.onStreamRead (node:internal/stream_base_commons:189:23) {
+  code: 'ERR_BUFFER_OUT_OF_BOUNDS'
+}
+
+Node.js v22.21.0
+
+Unknown wire: 3
+<Buffer 40 00 01 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 00 ... 52 more bytes>
+
+Move no account found error to UserService
