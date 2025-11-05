@@ -17,7 +17,7 @@ A private server for Beatstar which is shutting down on October 31st 2025. This 
 
 ## Creating an account
 
-1. First, in the main directory, run pnpm exec tsx server.ts
+1. First, in the main directory, run `pnpm exec tsx server.ts`
 2. In another terminal window or tab, cd to `/website/beatstar` and run `pnpm dev --host`
 3. Navigate to http://localhost:5173/profile and download your profile file
 4. Place the downloaded file on your device in `sdcard/beatstar`
