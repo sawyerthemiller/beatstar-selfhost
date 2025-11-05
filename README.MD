@@ -11,7 +11,7 @@ A private server for Beatstar which is shutting down on October 31st 2025. This 
 3. Start the docker server by and leave it running `docker compose up -d` inside the `website` folder
 4. Setup the database by running `pnpm prisma migrate reset`
 
-  a. If you already have a database that has data for some reason, just run 'prisma generate'
+   If you already have a database that has data for some reason, just run 'prisma generate'
 
 ## Creating an account
 
