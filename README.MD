@@ -4,16 +4,16 @@ Main project discord: https://discord.gg/9ST4Qe83bT
 
 A private server for Beatstar which is shutting down on October 31st 2025. This version has been modified for players who wish to selfhost it.
 
-You must run ./token.sh before continue
-
 ## Setup
 
 1. Clone this repo
-2. Run `pnpm run setup` to download dependencies in both the root directory and the `website` directory
-3. Start the docker server by and leave it running `docker compose up -d` inside the `website` folder
-4. Setup the database by running `pnpm prisma migrate reset`
+2. You must run chmod +x on token.sh and run it before continue
+3. Run `pnpm run setup` to download dependencies in both the root directory and the `website/beatstar` directory.
+4. While in the `website/beatstar` dir, run pnpm approve-builds. Sometimes it will require twice.
+5. Start the docker server by and leave it running `docker compose up -d` inside the `website/beatstar` folder
+6. Setup the database by running `pnpm prisma migrate reset`
 
-   If you already have a database that has data for some reason, just run 'prisma generate'
+   If you already have a database that has data for some reason, just run 'npx prisma generate'
 
 ## Creating an account
 
