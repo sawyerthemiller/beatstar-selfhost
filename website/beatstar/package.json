@@ -12,7 +12,7 @@
 		"check:watch": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --watch",
 		"format": "prettier --write .",
 		"lint": "prettier --check . && eslint .",
-		"setup": "export TOKEN=$(cat token) && pnpm install"
+		"setup": "pnpm install"
 	},
 	"prisma": {
 		"seed": "tsx prisma/seed.ts"
