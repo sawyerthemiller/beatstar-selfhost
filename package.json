@@ -18,6 +18,6 @@
     "ts-jest": "^29.4.1"
   },
   "scripts": {
-    "setup": "export TOKEN=$(cat token) && npm install"
+    "setup": "npm install"
   }
 }
