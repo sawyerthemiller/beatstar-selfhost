@@ -2,7 +2,7 @@
 
 Main project discord: https://discord.gg/9ST4Qe83bT
 
-A private server for Beatstar which is shutting down on October 31st 2025. This version has been modified for players who wish to selfhost it.
+A private server for Beatstar which is shutting down on **October 31st 2025** and this version has been modified for players who wish to selfhost it easily
 
 ## Setup
 
