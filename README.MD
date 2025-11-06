@@ -26,7 +26,7 @@ A private server for Beatstar which is shutting down on **October 31st 2025** an
 
 This will require the beatclone build from the server
 
-2. Set `serverIp` to the IP of your machine hosting the server
+2. Set `serverIp` to the IP of your machine hosting the server in your `settings.json`
 3. Set `serverPort` to `3000`
 4. Open your modded Beatstar
 
