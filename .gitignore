@@ -7,4 +7,5 @@ protobuf/jsons
 printer.ts
 output.txt
 token
-notes.txt.DS_Store
+notes.txt
+.DS_Store
