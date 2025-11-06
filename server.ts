@@ -52,7 +52,7 @@ const saClient = tls.connect(
 );
 
 saClient.on("error", (err) => {
-  console.error("TLS client error:", err.message);
+  console.error("TLS client error");
 });
 
 let globalSocket: net.Socket | null;
