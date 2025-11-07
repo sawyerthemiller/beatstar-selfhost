@@ -15,5 +15,6 @@ export const seed = async () => {
 			difficulty: parseInt(beatmap.difficulty) || 0,
 			deluxe: beatmap.deluxe
 		}))
+		skipDuplicates: true,
 	});
 };
