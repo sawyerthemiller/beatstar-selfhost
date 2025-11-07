@@ -47,3 +47,21 @@ Once you have tested everything, it should now be safer and more reliable to swi
 To update, just run `git pull` and git will get the latest files for you. You might want to run `pnpm prisma migrate dev` in `website/beatstar` after
 
 IF a seed is changed, i've redone the code to just update the db not replace it. All u need to do is `cd` to `/website/beatstar` and run `npx prisma seed db`
+
+## Quiet Operation Mode
+
+If you want true quiet operation
+
+1. Use `pnpm exec tsx server.ts --quiet`
+2. Download [this](`https://tinyurl.com/mjs-bs-mod) and replace `beatstar-selfhost/node_modules/dotenv/lib/main.js` file with it
+3. If you wish, you can make a script for it like this, and replace the line with your server location
+
+```bash
+#!/bin/bash
+
+clear
+
+cd ~/documents/github/beatstar-selfhost || exit
+echo "beatstar server started"
+pnpm exec tsx server.ts --quiet
+```
