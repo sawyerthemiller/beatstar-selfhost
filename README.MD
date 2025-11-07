@@ -40,4 +40,8 @@ This will require the beatclone build from the server
 3. Set `serverPort` to `3000`
 4. Open your modded Beatstar
 
-Once you have tested everything, it should now be safer and more reliable to switch ENVIRONMENT in `.env` to `prod` and it should also work offline. 
+Once you have tested everything, it should now be safer and more reliable to switch ENVIRONMENT in `env` to `prod` and it should also work offline. 
+
+## Updating
+
+To update, just run `git pull` and git will get the latest files for you. You might want to run `pnpm prisma migrate dev` in `website/beatstar` after
