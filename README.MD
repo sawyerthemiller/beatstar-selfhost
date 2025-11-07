@@ -53,7 +53,7 @@ IF a seed is changed, i've redone the code to just update the db not replace it.
 If you want true quiet operation
 
 1. Use `pnpm exec tsx server.ts --quiet`
-2. Download [this](`https://tinyurl.com/mjs-bs-mod) and replace `beatstar-selfhost/node_modules/dotenv/lib/main.js` file with it
+2. Download [this](https://tinyurl.com/mjs-bs-mod) and replace `beatstar-selfhost/node_modules/dotenv/lib/main.js` file with it
 3. If you wish, you can make a script for it like this, and replace the line with your server location
 
 ```bash
