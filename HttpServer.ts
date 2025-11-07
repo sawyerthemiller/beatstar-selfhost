@@ -65,7 +65,7 @@ export class HttpServer {
     });
 
     this.app.listen(Settings.EXPRESS_PORT, () => {
-      console.log(`HTTP server running on port ${Settings.EXPRESS_PORT}`);
+     // console.log(`HTTP server running on port ${Settings.EXPRESS_PORT}`);
     });
   }
 }
