@@ -21,20 +21,22 @@ export const seed = async () => {
 		}
 	});
 
-	await prisma.news.create({
-		data: {
-			type: article.type,
-			legacyId: article.legacyId,
-			viewType: article.viewType.toUpperCase(),
-			startTimeMsecs: new Date(article.startTimeMsecs),
-			endTimeMsecs: new Date(article.endTimeMsecs),
-			order: article.order,
-			title: article.title,
-			status: article.status,
-			id: article.id,
-			content: article.requirements[0].content,
-			requirements: article.requirements[0].requirements[0],
-			imageId: prismaImage.id
-		}
+	await prisma.news.upsert({
+	  where: { id: article.id },
+	  update: {},
+	  create: {
+	    type: article.type,
+	    legacyId: article.legacyId,
+	    viewType: article.viewType.toUpperCase(),
+	    startTimeMsecs: new Date(article.startTimeMsecs),
+	    endTimeMsecs: new Date(article.endTimeMsecs),
+	    order: article.order,
+	    title: article.title,
+	    status: article.status,
+	    id: article.id,
+	    content: article.requirements[0].content,
+	    requirements: article.requirements[0].requirements[0],
+	    imageId: prismaImage.id,
+	  },
 	});
 };
