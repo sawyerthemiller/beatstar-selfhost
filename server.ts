@@ -152,7 +152,7 @@ net
     socket.on("error", (err) => {
       const client = clients.get(socket);
       clients.delete(socket);
-      if (!SHUT_UP) Logger.error(err.message, client?.clide); // if not quietm show other errors
+      if (!SHUT_UP) Logger.error(err.message, client?.clide); // if not quiet show other errors
     });
   })
   .listen(Settings.SERVER_PORT, "0.0.0.0");
