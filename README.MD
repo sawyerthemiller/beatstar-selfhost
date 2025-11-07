@@ -8,10 +8,9 @@
 
 | Item | Description |
 |------|-------------|
-| **Purpose** | A mod of the Beatstar private server, make it easier to self-host |
 | **Official Server Shutdown** | **October 31, 2025** |
-| **Supports Custom Songs** | Partially |
-| **Next Planned Update** | Unknown |
+| **Purpose** | A mod of the Beatstar private server, make it easier to self-host |
+| **Next Planned Update** | TODO |
 | **Official Repo Synced** | Yes |
 
 ## Setup
