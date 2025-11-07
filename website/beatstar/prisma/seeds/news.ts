@@ -8,17 +8,19 @@ const __dirname = path.dirname(__filename);
 
 export const seed = async () => {
 	const article = JSON.parse(await fs.readFile(path.join(__dirname, 'files/news.json'), 'utf8'));
-
+	
 	const image = article.image[0];
-	const prismaImage = await prisma.image.create({
-		data: {
-			id: image.id,
-			url: image.url,
-			width: image.width,
-			height: image.height,
-			rectWidth: image.rect[0].width,
-			rectHeight: image.rect[0].height
-		}
+	const prismaImage = await prisma.image.upsert({
+	  where: { id: image.id },
+	  update: {},
+	  create: {
+	    id: image.id,
+	    url: image.url,
+	    width: image.width,
+	    height: image.height,
+	    rectWidth: image.rect[0].width,
+	    rectHeight: image.rect[0].height,
+	  },
 	});
 
 	await prisma.news.upsert({
