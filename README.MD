@@ -16,7 +16,7 @@
 ## Setup
 
 1. Clone this repo
-2. You must run chmod +x on token.sh and run it before continue.
+2. You must run `chmod +x` on `token.sh` and run it before continue.
 3. Run `pnpm run setup` to download dependencies in both the root directory and the `website/beatstar` directory.
 4. While in the `website/beatstar` dir, `run pnpm approve-builds` sometimes you will have to do this twice.
 5. Start the docker server by and leave it running `docker compose up -d` inside the `website/beatstar` folder.
