@@ -45,3 +45,5 @@ Once you have tested everything, it should now be safer and more reliable to swi
 ## Updating
 
 To update, just run `git pull` and git will get the latest files for you. You might want to run `pnpm prisma migrate dev` in `website/beatstar` after
+
+IF a seed is changed, i've redone the code to just update the db not replace it. All u need to do is `cd` to `/website/beatstar` and run `npx prisma seed db`
