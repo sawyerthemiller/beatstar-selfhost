@@ -1,27 +1,35 @@
 # Beatstar Selfhosted
 
-[Main project Discord](https://discord.gg/9ST4Qe83bT)
+[Main Project Discord](https://discord.gg/9ST4Qe83bT)
 
-This will probably be the last update for a while. It works, handles customs, and for now thats all i care about. But for now, is in sync with offical repo: **Yes**
+---
 
-A private server for Beatstar which is shutting down on **October 31st 2025** and this version has been modified for players who wish to selfhost it easily
+### Project Overview
+
+| Item | Description |
+|------|-------------|
+| **Purpose** | A mod of the Beatstar private server, make it easier to self-host |
+| **Official Repo Synced** | Yes |
+| **Supports Custom Songs** | Yes |
+| **Next Planned Update** | Unknown |
+| **Official Server Shutdown** | **October 31, 2025** |
 
 ## Setup
 
 1. Clone this repo
-2. You must run chmod +x on token.sh and run it before continue
+2. You must run chmod +x on token.sh and run it before continue.
 3. Run `pnpm run setup` to download dependencies in both the root directory and the `website/beatstar` directory.
-4. While in the `website/beatstar` dir, `run pnpm approve-builds` sometimes it will require twice.
-5. Start the docker server by and leave it running `docker compose up -d` inside the `website/beatstar` folder
+4. While in the `website/beatstar` dir, `run pnpm approve-builds` sometimes you will have to do this twice.
+5. Start the docker server by and leave it running `docker compose up -d` inside the `website/beatstar` folder.
 6. Setup the database by running `pnpm prisma migrate reset`
 
-   If you already have a database that has data for some reason, just run `npx prisma generate`
+   If you already have a database that has data for some reason, you can skip docker and just run `npx prisma generate`
 
 ## Creating an account
 
 1. First, in the main directory, run `pnpm exec tsx server.ts`
-2. In another terminal window or tab, cd to `/website/beatstar` and run `pnpm dev --host`
-3. Navigate to http://localhost:5173/profile and download your profile file
+2. In another terminal window or tab, `cd` to `/website/beatstar` and run `pnpm dev --host`
+3. Navigate to `your pc ip` on port `5173` and download your profile file
 4. Place the downloaded file on your device in `sdcard/beatstar`
 
 ### Pointing to a custom instance
