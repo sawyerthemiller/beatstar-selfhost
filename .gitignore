@@ -6,7 +6,10 @@ readme*
 com.spaceapegames.beatstar_*.cs
 
 # existing ignores
+# for da macs
 .DS_Store
+
+# project files
 node_modules
 raw.txt
 protobuf/profile
@@ -16,3 +19,4 @@ printer.ts
 output.txt
 token
 notes.txt
+log.txt
