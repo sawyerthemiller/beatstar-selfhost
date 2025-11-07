@@ -8,9 +8,9 @@
 
 | Item | Description |
 |------|-------------|
-| **Official Server Shutdown** | **October 31, 2025** |
+| Official Server Shutdown | **October 31, 2025** |
 | **Purpose** | A mod of the Beatstar private server, make it easier to self-host |
-| **Next Planned Update** | TODO |
+| **Next Planned Update** | When ExternalAddress updates their one |
 | **Official Repo Synced** | Yes |
 
 ## Setup
