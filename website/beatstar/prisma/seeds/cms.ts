@@ -15,7 +15,7 @@ export const seed = async () => {
 			data: file.data,
 			gzip: Buffer.from(file.gzip),
 			hash: file.hash
-		}))
+		})),
 		skipDuplicates: true,
 	});
 };
