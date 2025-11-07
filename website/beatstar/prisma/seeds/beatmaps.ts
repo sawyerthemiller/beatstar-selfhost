@@ -14,7 +14,7 @@ export const seed = async () => {
 			idLabel: beatmap.idLabel,
 			difficulty: parseInt(beatmap.difficulty) || 0,
 			deluxe: beatmap.deluxe
-		}))
+		})),
 		skipDuplicates: true,
 	});
 };
