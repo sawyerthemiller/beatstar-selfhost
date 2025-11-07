@@ -1,3 +1,25 @@
+// =========================
+// Modded server stay silent
+// =========================
+
+// Detect SHUT-UP mode from CLI
+
+const SHUT_UP = process.argv.includes("--quiet");
+
+// Silence all console output
+
+if (SHUT_UP) {
+  console.log = () => {};
+  console.info = () => {};
+  console.warn = () => {};
+  console.error = () => {}; // remove this line if you want runtime errors visible
+}
+
+// ======================
+// Import everything else
+// ======================
+
+import "dotenv/config";
 import net from "net";
 import tls from "tls";
 import { promises as fs } from "fs";
@@ -15,6 +37,10 @@ import Settings from "./Settings";
 import { HttpServer } from "./HttpServer";
 import Logger from "./lib/Logger";
 import { ClientServerMessageHeaderMap } from "@externaladdress4401/protobuf/protos/ClientServerMessageHeader";
+
+// ===============================
+// Initialise our server as usual
+// ===============================
 
 Settings.init();
 
@@ -47,30 +73,23 @@ const saClient = tls.connect(
     port: 443,
   },
   () => {
-    console.log("Connected to remote TLS server");
+    if (!SHUT_UP) console.log("Connected remote TLS server"); // if not quiet, show when server starts
   }
 );
 
 saClient.on("error", (err) => {
-  console.error("TLS client error");
+  if (!SHUT_UP) console.error("TLS client error"); // if cannot connect to server, then show error
 });
 
 let globalSocket: net.Socket | null;
 
-// this will only run if useCustomServer is false
-// sa server isn't used otherwise
 saClient.on("data", async (data) => {
-  if (!globalSocket) {
-    return;
-  }
+  if (!globalSocket) return;
 
   const client = clients.get(globalSocket);
-  if (!client) {
-    return;
-  }
+  if (!client) return;
 
   client.write(data);
-
   client.handlePacket(data);
 
   const packets = client.extractPackets();
@@ -79,32 +98,16 @@ saClient.on("data", async (data) => {
     globalSocket.write(packet.buffer);
     client.reset();
   }
-
-  /*const fullPayload = new ProtobufHandler("READ", client.packet?.payload);
-
-  if (client.packet?.header.compressed) {
-    await fullPayload.decompress();
-  }
-
-  fullPayload.process();
-
-  console.log("Server", fullPayload.bytes);
-
-  // do something with the payload here
-  client.reset();*/
 });
 
 net
   .createServer((socket) => {
     globalSocket = socket;
-
     clients.set(socket, new Client(socket));
 
     socket.on("data", async (data) => {
       const client = clients.get(socket!);
-      if (!client) {
-        return;
-      }
+      if (!client) return;
 
       client.handlePacket(data);
 
@@ -112,15 +115,10 @@ net
       for (const packet of packets) {
         const header = packet.parseHeader(ClientServerMessageHeaderMap);
 
-        if (!client.clide) {
-          client.setClide(header.clide);
-        }
+        if (!client.clide) client.setClide(header.clide);
 
         if (!Settings.USE_PRIVATE_SERVER) {
-          if (header.compressed) {
-            await packet.payload.decompress();
-          }
-
+          if (header.compressed) await packet.payload.decompress();
           await fs.writeFile(`./packets/client/${clientIndex++}`, data);
           saClient.write(data);
           client.reset();
@@ -129,33 +127,32 @@ net
 
         const service = services.get(header.service);
         if (!service) {
-          Logger.warn(`${header.service} is an unknown service.`);
-          return;
+          if (!SHUT_UP) Logger.warn(`${header.service} is an unknown service.`); // if unknown service, then show error
+          continue;
         }
 
-        Logger.info(
-          `${service.name} received a packet.`,
+        if (!SHUT_UP) Logger.info(
+          `${service.name} received a packet.`, // if not quiet mode, show info
           client.clide ?? undefined
         );
 
         await service.handlePacket(packet, client);
       }
+
       client.reset();
     });
 
     socket.on("end", () => {
       const client = clients.get(socket);
       clients.delete(socket);
-      Logger.info("Client disconnected.", client?.clide);
+      if (!SHUT_UP) Logger.info("Client disconnected.", client?.clide); // if not quiet, show when app closes
       globalSocket = null;
     });
 
     socket.on("error", (err) => {
       const client = clients.get(socket);
       clients.delete(socket);
-      Logger.error(err.message, client?.clide);
+      if (!SHUT_UP) Logger.error(err.message, client?.clide); // if not quietm show other errors
     });
   })
-  .listen(Settings.SERVER_PORT, "0.0.0.0", () => {
-    Logger.info("Local proxy server listening on port 3000");
-  });
+  .listen(Settings.SERVER_PORT, "0.0.0.0");
