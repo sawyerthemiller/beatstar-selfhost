@@ -33,7 +33,7 @@
 
 ### Pointing to a custom instance
 
-This will require the beatclone build from the server
+This will require the beatclone build from the discord server
 
 2. Set `serverIp` to the IP of your machine hosting the server in your `settings.json`
 3. Set `serverPort` to `3000`
