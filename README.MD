@@ -9,7 +9,7 @@
 | Item | Description |
 |------|-------------|
 | Official Server Shutdown | **October 31, 2025** |
-| **Purpose and Status** | A mod of the Beatstar private server, make it easier to selfhost. Working |
+| **Purpose and Status** | A mod of the Beatstar private server, make it easier to selfhost. Currently it is functional... |
 | **Next Update Planned** | Halted |
 | **Official Repo Synced** | No |
 
@@ -42,6 +42,8 @@ This will require the beatclone build from the discord server
 Once you have tested everything, it should now be safer and more reliable to switch `ENVIRONMENT` in `env` to `prod` and it should also work offline. 
 
 ## Updating
+
+I am going to modify the script from the beatclone app and make it stop updating as that will inevitably break the older version of the server we are using. *Stay Tuned*
 
 To update, just run `git pull` and git will get the latest files for you. You might want to run `pnpm prisma migrate dev` in `website/beatstar` after
 
