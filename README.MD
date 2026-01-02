@@ -2,6 +2,8 @@
 
 [Main Project Discord](https://discord.gg/9ST4Qe83bT)
 
+Why did ExternalAddress block me from doing anything on the orignal repo lmao... Ok...
+
 ---
 
 ### Project Overview
@@ -10,8 +12,7 @@
 |------|-------------|
 | Official Server Shutdown | **October 31, 2025** |
 | **Purpose and Status** | A mod of the Beatstar private server, make it easier to selfhost. Currently it is functional... |
-| **Next Update Planned** | Halted |
-| **Official Repo Synced** | No |
+| **Official Repo Synced** | Soon, major rework in progress with more features than original one |
 
 ## Setup
 
